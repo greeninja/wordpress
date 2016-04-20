@@ -33,7 +33,7 @@ RUN curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_VER
 COPY docker-entrypoint.sh /entrypoint.sh
 
 RUN mv /var/www/html /var/www/html_old && \
-    mkdir /storage/htdocs || true && \
+    mkdir -p /storage/htdocs || true && \
     chown www-data:www-data /storage/htdocs -R || true && \
     ln -s /storage/htdocs /var/www/html 
 
